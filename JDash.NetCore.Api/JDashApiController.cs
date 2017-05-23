@@ -13,7 +13,7 @@ namespace JDash.NetCore.Api
     public class JDashApiController : Controller, IJDashController
     {
         private BaseJDashConfigurator _configurator;
-
+        private JDashPrincipalResult _principal;
         private BaseJDashConfigurator Configurator
         {
             get
@@ -27,6 +27,18 @@ namespace JDash.NetCore.Api
         }
 
 
+        private JDashPrincipalResult Principal
+        {
+            get
+            {
+                if (_principal == null)
+                {
+                    _principal = Configurator.GetDecryptedPrincipal();
+                }
+                return _principal;
+            }
+        }
+
         [HttpGet("status")]
         public ActionResult status()
         {
@@ -38,7 +50,7 @@ namespace JDash.NetCore.Api
         [HttpPost("dashlet/delete/{id}")]
         public ActionResult DeleteDashlet(string id)
         {
-            var principal = this.Configurator.GetDecryptedPrincipal();
+            var principal = this.Principal;
             using (var persistance = this.Configurator.GetProvider())
             {
                 var dashlet = persistance.GetDashlet(id);
@@ -61,7 +73,7 @@ namespace JDash.NetCore.Api
         [HttpPost("dashlet/create")]
         public ActionResult CreateDashlet([FromBody] DashletCreateModel model)
         {
-            var principal = this.Configurator.GetDecryptedPrincipal();
+            var principal = this.Principal;
             using (var persistance = this.Configurator.GetProvider())
             {
 
@@ -90,7 +102,7 @@ namespace JDash.NetCore.Api
         [HttpGet("dashboard/my")]
         public ActionResult MyDashboards()
         {
-            var principal = this.Configurator.GetDecryptedPrincipal();
+            var principal = this.Principal;
             using (var persistance = this.Configurator.GetProvider())
             {
                 var dashboards = persistance.SearchDashboards(new SearchDashboardModel
@@ -106,7 +118,7 @@ namespace JDash.NetCore.Api
         [HttpPost("dashboard/delete/{id}")]
         public ActionResult DeleteDashboard(string id)
         {
-            var principal = this.Configurator.GetDecryptedPrincipal();
+            var principal = this.Principal;
             using (var persistance = this.Configurator.GetProvider())
             {
                 var dashboard = persistance.GetDashboardById(principal.appid, id);
@@ -125,7 +137,7 @@ namespace JDash.NetCore.Api
         [HttpGet("dashboard/{id}")]
         public ActionResult GetDashboard(string id)
         {
-            var principal = this.Configurator.GetDecryptedPrincipal();
+            var principal = this.Principal;
             using (var persistance = this.Configurator.GetProvider())
             {
                 var dashboard = persistance.GetDashboard(principal.appid, id);
@@ -143,7 +155,7 @@ namespace JDash.NetCore.Api
         [HttpPost("dashboard/create")]
         public ActionResult CreateDashboard(DashboardCreateModel model)
         {
-            var principal = this.Configurator.GetDecryptedPrincipal();
+            var principal = this.Principal;
             using (var persistance = this.Configurator.GetProvider())
             {
                 var newModel = new DashboardModel
@@ -170,7 +182,7 @@ namespace JDash.NetCore.Api
         {
 
             // FIXME : Search can be array of strings
-            var principal = this.Configurator.GetDecryptedPrincipal();
+            var principal = this.Principal;
             using (var persistance = this.Configurator.GetProvider())
             {
 
@@ -189,7 +201,7 @@ namespace JDash.NetCore.Api
         [HttpPost("dashboard/save/{id}")]
         public ActionResult SaveDashboard([FromRoute]string id, [FromBody] DashboardUpdateModel updateValues)
         {
-            var principal = this.Configurator.GetDecryptedPrincipal();
+            var principal = this.Principal;
             using (var persistance = this.Configurator.GetProvider())
             {
 
@@ -222,7 +234,7 @@ namespace JDash.NetCore.Api
         [HttpPost("dashlet/save/{id}")]
         public ActionResult SaveDashlet([FromRoute]string id, [FromBody]DashletUpdateModel updateValues)
         {
-            var principal = this.Configurator.GetDecryptedPrincipal();
+            var principal = this.Principal;
             using (var persistance = this.Configurator.GetProvider())
             {
                 var dashlet = persistance.GetDashlet(id);
