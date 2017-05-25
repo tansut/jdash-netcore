@@ -22,10 +22,22 @@ namespace JDash.NetCore.Models
      * */
 
 
+    /// <summary>
+    /// This is the persistance layer of JDash, with this Interface you can create your own database layer.
+    /// For implementation details you can ask our team.
+    /// </summary>
+    /// <seealso cref="System.IDisposable" />
     public interface IJDashPersistenceProvider : IDisposable
     {
         bool EnsureTablesCreated();
         GetDashboardResult GetDashboard(string appid, string id);
+
+        /// <summary>
+        /// Searches the dashboards.
+        /// </summary>
+        /// <param name="searchDashboardModel">The search dashboard model. This parameter can have ArrayOfString values as JSON Please implement it via testing if parameter starts with [ and ends with ] and contains "," keys </param>
+        /// <param name="query">The paging query.</param>
+        /// <returns></returns>
         QueryResult<DashboardModel> SearchDashboards(SearchDashboardModel searchDashboardModel, Query query);
         CreateResult CreateDashboard(DashboardModel model);
         void DeleteDashboard(string appid, string id);

@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using JDash.NetCore.Api;
-using JDash.NetCore.Api.Infrastructure;
+using JDash.NetCore.Api; 
 using JDash.NetCore.Models;
 using Microsoft.AspNetCore.Http;
 using JDash.NetCore.Provider.MsSQL;
@@ -61,40 +60,23 @@ namespace WebApplication1
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            app.UseCors(builder =>
-            {
-                builder.AllowAnyHeader();
-                builder.AllowAnyMethod();
-                builder.AllowCredentials();
-                builder.AllowAnyOrigin();
-            });
-
-            app.UseJDash<JDashConfigurator>().UseCors(builder =>
-            {
-                builder.AllowAnyHeader();
-                builder.AllowAnyMethod();
-                builder.AllowCredentials();
-                builder.AllowAnyOrigin();
-            });
+ 
+            app.UseJDash<JDashConfigurator>();
 
         }
     }
 
-
     public class JDashConfigurator : BaseJDashConfigurator
-    {
-        private static bool dbCreated = false;
+    { 
 
         public JDashConfigurator(HttpContext context, bool ensureTablesCreated) : base(context, ensureTablesCreated)
         {
-
+            this._ensureTablesCreated = true;
         }
 
 
         public override JDashPrincipalResult GetJDashPrincipal(string authorizationHeader)
-        {
-
+        { 
             return new JDashPrincipalResult() { appid = "1", user = "1" };
         }
 

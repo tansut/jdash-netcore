@@ -5,9 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using JDash.NetCore.Api.Infrastructure;
-using JDash.NetCore.Api.Core;
+using System.Threading.Tasks;  
 
 namespace JDash.NetCore.Api
 {
@@ -16,8 +14,14 @@ namespace JDash.NetCore.Api
         public static IApplicationBuilder UseJDash<ConfiguratorType>(this IApplicationBuilder app)
             where ConfiguratorType : BaseJDashConfigurator
         {
+            return UseJDash<ConfiguratorType>(app, "/jdash/api/v1");
+        }
+
+        public static IApplicationBuilder UseJDash<ConfiguratorType>(this IApplicationBuilder app, string apiPath)
+           where ConfiguratorType : BaseJDashConfigurator
+        {
             IApplicationBuilder newAppConfiguration = null;
-            app.Map(new PathString("/jdash/api/v1"), (configuration) =>
+            app.Map(new PathString(apiPath), (configuration) =>
             {
                 Configuration.ConfiguratorType = typeof(ConfiguratorType);
                 configuration.UseMvc();

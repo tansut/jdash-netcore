@@ -3,9 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JDash.NetCore.Models;
-using JDash.NetCore.Api.Core;
-using JDash.NetCore.Api.Infrastructure;
+using JDash.NetCore.Models; 
 using JDash.NetCore.Api.Models;
 
 namespace JDash.NetCore.Api

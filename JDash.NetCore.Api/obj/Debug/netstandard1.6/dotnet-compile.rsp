@@ -1,5 +1,5 @@
---temp-output:D:\Projects\jdashv2\jdash-net-api\JDash.NetCore.Api\obj\Debug\netstandard1.6\
---out:D:\Projects\jdashv2\jdash-net-api\JDash.NetCore.Api\bin\Debug\netstandard1.6\JDash.NetCore.Api.dll
+--temp-output:D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Api\obj\Debug\netstandard1.6\
+--out:D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Api\bin\Debug\netstandard1.6\JDash.NetCore.Api.dll
 --define:DEBUG
 --define:TRACE
 --define:NETSTANDARD1_6
@@ -143,11 +143,11 @@
 --reference:C:\Users\Volkan\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Volkan\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Volkan\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
---reference:D:\Projects\jdashv2\jdash-net-api\JDash.NetCore.Models\bin\Debug\netstandard1.6\JDash.NetCore.Models.dll
-D:\Projects\jdashv2\jdash-net-api\JDash.NetCore.Api\ApplicationBuilderExtensions.cs
-D:\Projects\jdashv2\jdash-net-api\JDash.NetCore.Api\IJDashController.cs
-D:\Projects\jdashv2\jdash-net-api\JDash.NetCore.Api\JDashApiController.cs
-D:\Projects\jdashv2\jdash-net-api\JDash.NetCore.Api\Core\Configuration.cs
-D:\Projects\jdashv2\jdash-net-api\JDash.NetCore.Api\Infrastructure\BaseJDashConfigurator.cs
-D:\Projects\jdashv2\jdash-net-api\JDash.NetCore.Api\Models\SearchDashboardsModelWithQuery.cs
-D:\Projects\jdashv2\jdash-net-api\JDash.NetCore.Api\Properties\AssemblyInfo.cs
+--reference:D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Models\bin\Debug\netstandard1.6\JDash.NetCore.Models.dll
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Api\ApplicationBuilderExtensions.cs
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Api\IJDashController.cs
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Api\JDashApiController.cs
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Api\Core\Configuration.cs
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Api\Infrastructure\BaseJDashConfigurator.cs
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Api\Models\SearchDashboardsModelWithQuery.cs
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Api\Properties\AssemblyInfo.cs

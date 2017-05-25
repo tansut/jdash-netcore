@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Primitives;
 
-namespace JDash.NetCore.Api.Infrastructure
+namespace JDash.NetCore.Api
 {
     public abstract class BaseJDashConfigurator
     {

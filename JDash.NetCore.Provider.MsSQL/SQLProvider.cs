@@ -413,7 +413,7 @@ namespace JDash.NetCore.Provider.MsSQL
 
         public virtual void UpdateDashboard(string appid, string id, DashboardUpdateModel updateModel)
         {
-            string statement = "update ["+ this.defaultScheme +"].dashboard set {0} where id = @id and appId = @appid ";
+            string statement = "update [" + this.defaultScheme + "].dashboard set {0} where id = @id and appId = @appid ";
             using (var connection = CreateConnection())
             {
                 Dictionary<string, KeyValuePair<string, object>> keyValues = new Dictionary<string, KeyValuePair<string, object>>();
@@ -571,6 +571,7 @@ namespace JDash.NetCore.Provider.MsSQL
             // this method should add multiple keys for "in" clause ,if not defined multiple it will just add key,value as parameters.
             if (isMultiple)
             {
+
                 queryBuilder.Append(" and [" + key + "] in (");
                 var valueCollection = JsonConvert.DeserializeObject<string[]>(value);
                 for (int i = 0; i < valueCollection.Length; i++)
@@ -578,7 +579,7 @@ namespace JDash.NetCore.Provider.MsSQL
                     if (i == valueCollection.Length - 1)
                     {
                         queryBuilder.Append("@" + key + i);
-                        command.Parameters.Add("@user" + i, type).Value = valueCollection[i];
+                        command.Parameters.Add("@" + key + i, type).Value = valueCollection[i];
                     }
                     else
                     {
