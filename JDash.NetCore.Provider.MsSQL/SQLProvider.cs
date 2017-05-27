@@ -371,13 +371,13 @@ namespace JDash.NetCore.Provider.MsSQL
             {
                 Dictionary<string, KeyValuePair<string, object>> keyValues = new Dictionary<string, KeyValuePair<string, object>>();
                 if (model.configuration != null)
-                    keyValues.Add("configuration", new KeyValuePair<string, object>("@configuration", JsonConvert.SerializeObject(model.configuration)));
+                    keyValues.Add("[configuration]", new KeyValuePair<string, object>("@configuration", JsonConvert.SerializeObject(model.configuration)));
 
                 if (model.description != null)
-                    keyValues.Add("description", new KeyValuePair<string, object>("@description", model.description));
+                    keyValues.Add("[description]", new KeyValuePair<string, object>("@description", model.description));
 
                 if (model.title != null)
-                    keyValues.Add("title", new KeyValuePair<string, object>("@title", model.title));
+                    keyValues.Add("[title]", new KeyValuePair<string, object>("@title", model.title));
 
 
                 var command = connection.CreateCommand();

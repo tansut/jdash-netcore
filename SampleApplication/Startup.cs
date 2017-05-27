@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using JDash.NetCore.Api; 
+using JDash.NetCore.Api;
 using JDash.NetCore.Models;
 using Microsoft.AspNetCore.Http;
 using JDash.NetCore.Provider.MsSQL;
+using JDash.NetCore.Provider.MySQL;
 
 namespace WebApplication1
 {
@@ -82,7 +83,9 @@ namespace WebApplication1
 
         public override IJDashPersistenceProvider GetPersistanceProvider()
         {
-            var provider = new JSQLProvider(connectionString: "Data Source=.\\sqlexpress;Initial Catalog=JDashV2Demo;Integrated Security=SSPI;", defaultScheme: "dbo");
+            // 127.0.0.1 : 3306   root 
+            string connectionString = "Server=localhost;Database=jdash_mysql_demo;Uid=root;Pwd=1234;";
+            var provider = new JMySQLProvider(connectionString);
             return provider;
         }
     }

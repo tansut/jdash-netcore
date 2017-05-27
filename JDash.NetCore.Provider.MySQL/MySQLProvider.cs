@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace JDash.NetCore.Provider.MySQL
 {
-    public class MySQLProvider : IJDashPersistenceProvider
+    public class JMySQLProvider : IJDashPersistenceProvider
     {
-        private string connStr; 
+        private string connStr;
 
-        public MySQLProvider(string connectionString)
+
+        public JMySQLProvider(string connectionString)
         {
-            throw new NotImplementedException();
             this.connStr = connectionString;
         }
 
@@ -26,7 +26,57 @@ namespace JDash.NetCore.Provider.MySQL
 
         public virtual bool EnsureTablesCreated()
         {
-            throw new NotImplementedException();
+
+            using (var connection = CreateConnection())
+            {
+
+                var command = connection.CreateCommand();
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "SELECT count(*) FROM INFORMATION_SCHEMA.TABLES where (TABLE_NAME = 'dashboard' or TABLE_NAME = 'dashlet' ) and TABLE_SCHEMA = @scheme";
+                command.Parameters.AddWithValue("@scheme", connection.Database);
+                try
+                {
+                    connection.Open();
+                    if (Convert.ToInt32(command.ExecuteScalar().ToString()) < 2)
+                    {
+                        using (var transaction = connection.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted))
+                        {
+                            try
+                            {
+                                var dashboardCreateCommand = connection.CreateCommand();
+                                dashboardCreateCommand.CommandText = Scripts.TableCreationScripts.DashboardCreateScript;
+                                dashboardCreateCommand.CommandType = System.Data.CommandType.Text;
+                                dashboardCreateCommand.Transaction = transaction;
+                                dashboardCreateCommand.ExecuteNonQuery();
+
+                                var dashletCreateCommand = connection.CreateCommand();
+                                dashletCreateCommand.CommandText = Scripts.TableCreationScripts.DashletCreateScript;
+                                dashletCreateCommand.CommandType = System.Data.CommandType.Text;
+                                dashletCreateCommand.Transaction = transaction;
+                                dashletCreateCommand.ExecuteNonQuery();
+
+                                transaction.Commit();
+                                return true;
+                            }
+                            catch (Exception ex)
+                            {
+                                transaction.Rollback();
+                                throw new Exception("Dashlet/Dashboard Table Creation Failed on SQL Server Please Check If Database Created and Dashboard and Dashlet tables do not exists.", ex);
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
         }
 
         public virtual DashletModel GetDashlet(string id)
@@ -85,15 +135,14 @@ namespace JDash.NetCore.Provider.MySQL
         public virtual CreateResult CreateDashboard(DashboardModel model)
         {
             string statement = @"INSERT INTO dashboard
-                                       ([appId]
-                                       ,[title]
-                                       ,[shareWith]
-                                       ,[description]
-                                       ,[user]
-                                       ,[createdAt]
-                                       ,[config]
-                                       ,[layout])
-                                 OUTPUT Inserted.id
+                                       (appId
+                                       ,title
+                                       ,shareWith
+                                       ,description
+                                       ,user
+                                       ,createdAt
+                                       ,config
+                                       ,layout)
                                  VALUES
                                 (@appid , @title , @shareWith , @description , @user , @createdAt , @config , @layout)";
 
@@ -130,7 +179,7 @@ namespace JDash.NetCore.Provider.MySQL
                 {
                     connection.Open();
                     var id = command.ExecuteScalar().ToString();
-                    return new CreateResult() { id = id };
+                    return new CreateResult() { id = command.LastInsertedId.ToString() };
                 }
                 finally
                 {
@@ -144,13 +193,12 @@ namespace JDash.NetCore.Provider.MySQL
         public virtual CreateResult CreateDashlet(DashletModel model)
         {
             string statement = @"INSERT INTO dashlet
-           ([moduleId]
-           ,[dashboardId]
-           ,[configuration]
-           ,[title]
-           ,[description]
-           ,[createdAt])
-     OUTPUT Inserted.id
+           (moduleId
+           ,dashboardId
+           ,configuration
+           ,title
+           ,description
+           ,createdAt) 
      VALUES
            (@moduleId, @dashboardId , @configuration, @title, @description, @createdAt)";
 
@@ -178,7 +226,7 @@ namespace JDash.NetCore.Provider.MySQL
                 {
                     connection.Open();
                     var id = command.ExecuteScalar().ToString();
-                    return new CreateResult() { id = id };
+                    return new CreateResult() { id = command.LastInsertedId.ToString() };
                 }
                 finally
                 {
@@ -286,7 +334,7 @@ namespace JDash.NetCore.Provider.MySQL
                 if (!string.IsNullOrEmpty(model.dashboardId))
                     sb.Append(" and dashboardId = @id");
                 if (!string.IsNullOrEmpty(model.user))
-                    sb.Append(" and [user] = @user");
+                    sb.Append(" and user = @user");
 
                 var command = connection.CreateCommand();
                 command.CommandText = sb.ToString();
@@ -368,19 +416,19 @@ namespace JDash.NetCore.Provider.MySQL
                 Dictionary<string, KeyValuePair<string, object>> keyValues = new Dictionary<string, KeyValuePair<string, object>>();
 
                 if (updateModel.config != null)
-                    keyValues.Add("[config]", new KeyValuePair<string, object>("@config", JsonConvert.SerializeObject(updateModel.config)));
+                    keyValues.Add("config", new KeyValuePair<string, object>("@config", JsonConvert.SerializeObject(updateModel.config)));
 
                 if (updateModel.layout != null)
-                    keyValues.Add("[layout]", new KeyValuePair<string, object>("@layout", JsonConvert.SerializeObject(updateModel.layout)));
+                    keyValues.Add("layout", new KeyValuePair<string, object>("@layout", JsonConvert.SerializeObject(updateModel.layout)));
 
                 if (updateModel.description != null)
-                    keyValues.Add("[description]", new KeyValuePair<string, object>("@description", updateModel.description));
+                    keyValues.Add("description", new KeyValuePair<string, object>("@description", updateModel.description));
 
                 if (updateModel.title != null)
-                    keyValues.Add("[title]", new KeyValuePair<string, object>("@title", updateModel.title));
+                    keyValues.Add("title", new KeyValuePair<string, object>("@title", updateModel.title));
 
                 if (updateModel.shareWith != null)
-                    keyValues.Add("[shareWith]", new KeyValuePair<string, object>("@shareWith", updateModel.shareWith));
+                    keyValues.Add("shareWith", new KeyValuePair<string, object>("@shareWith", updateModel.shareWith));
 
 
                 var command = connection.CreateCommand();
@@ -464,7 +512,7 @@ namespace JDash.NetCore.Provider.MySQL
                     AddMultiParameter(queryBuilder, command, "shareWith", searchDashboardModel.shareWith, isShareWithArray, System.Data.SqlDbType.NVarChar);
 
                 // +1 is for "hasMore" result.
-                queryBuilder.Append(" order by [createdAt] offset " + (query.startFrom) + " rows fetch next " + (query.limit + 1) + " rows only");
+                queryBuilder.Append(" order by createdAt limit " + (query.startFrom) + "," + (query.limit + 1));
 
                 command.CommandText = queryBuilder.ToString();
 
@@ -520,7 +568,7 @@ namespace JDash.NetCore.Provider.MySQL
             // this method should add multiple keys for "in" clause ,if not defined multiple it will just add key,value as parameters.
             if (isMultiple)
             {
-                queryBuilder.Append(" and [" + key + "] in (");
+                queryBuilder.Append(" and " + key + " in (");
                 var valueCollection = JsonConvert.DeserializeObject<string[]>(value);
                 for (int i = 0; i < valueCollection.Length; i++)
                 {
@@ -540,21 +588,21 @@ namespace JDash.NetCore.Provider.MySQL
             else
             {
 
-                queryBuilder.Append(" and [" + key + "] = @" + key + " ");
+                queryBuilder.Append(" and " + key + " = @" + key + " ");
                 command.Parameters.AddWithValue("@" + key, type).Value = value;
             }
         }
 
-     
+
         private string getSelectDashletQueryBase()
         {
-            string query = "SELECT [id], [moduleId], [dashboardId], [configuration], [title], [description], [createdAt] FROM [dashlet] ";
+            string query = "SELECT id, moduleId, dashboardId, configuration, title, description, createdAt FROM dashlet ";
             return query;
         }
 
         private string getSelectDashboardQueryBase(int top = 0)
         {
-            return "SELECT [id], [appId], [title], [shareWith], [description], [user], [createdAt], [config] , [layout]  FROM dashboard ";
+            return "SELECT id, appId, title, shareWith, description, user, createdAt, config , layout  FROM dashboard ";
         }
 
         private IEnumerable<DashboardModel> CastToDashboardModel(MySqlDataReader reader)

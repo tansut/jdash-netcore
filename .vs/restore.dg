@@ -1,2 +1,7 @@
-#:D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MySQL\JDash.NetCore.Provider.MySQL.xproj
+#:D:\Projects\jdashv2\jdash-netcore\SampleApplication\SampleApplication.xproj
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\SampleApplication.xproj|D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Api\JDash.NetCore.Api.xproj
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\SampleApplication.xproj|D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MsSQL\JDash.NetCore.Provider.MsSQL.xproj
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\SampleApplication.xproj|D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MySQL\JDash.NetCore.Provider.MySQL.xproj
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Api\JDash.NetCore.Api.xproj|D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Models\JDash.NetCore.Models.xproj
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MsSQL\JDash.NetCore.Provider.MsSQL.xproj|D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Models\JDash.NetCore.Models.xproj
 D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MySQL\JDash.NetCore.Provider.MySQL.xproj|D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Models\JDash.NetCore.Models.xproj
