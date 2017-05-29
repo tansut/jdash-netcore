@@ -89,7 +89,7 @@ namespace JDash.NetCore.Provider.MySQL
 
                 var command = connection.CreateCommand();
                 command.CommandText = sb.ToString();
-                command.Parameters.AddWithValue("@id", System.Data.SqlDbType.Int).Value = int.Parse(id);
+                command.Parameters.Add(new MySqlParameter("@id", MySqlDbType.Int32) { Value = int.Parse(id) });
                 command.CommandType = System.Data.CommandType.Text;
 
                 try
@@ -115,8 +115,8 @@ namespace JDash.NetCore.Provider.MySQL
 
                 var command = connection.CreateCommand();
                 command.CommandText = sb.ToString();
-                command.Parameters.AddWithValue("@id", System.Data.SqlDbType.Int).Value = int.Parse(id);
-                command.Parameters.AddWithValue("@appid", System.Data.SqlDbType.NVarChar).Value = appid;
+                command.Parameters.Add(new MySqlParameter("@id", MySqlDbType.Int32) { Value = int.Parse(id) });
+                command.Parameters.Add(new MySqlParameter("@appid", MySqlDbType.VarChar) { Value = appid });
                 command.CommandType = System.Data.CommandType.Text;
                 try
                 {
@@ -134,51 +134,67 @@ namespace JDash.NetCore.Provider.MySQL
 
         public virtual CreateResult CreateDashboard(DashboardModel model)
         {
-            string statement = @"INSERT INTO dashboard
-                                       (appId
-                                       ,title
-                                       ,shareWith
-                                       ,description
-                                       ,user
-                                       ,createdAt
-                                       ,config
-                                       ,layout)
-                                 VALUES
-                                (@appid , @title , @shareWith , @description , @user , @createdAt , @config , @layout)";
+
 
             using (var connection = CreateConnection())
             {
+                string statement = @"INSERT INTO `" + connection.Database + @"`.`dashboard`
+                                       (`appId`
+                                       ,`title`
+                                       ,`shareWith`
+                                       ,`description`
+                                       ,`user`
+                                       ,`createdAt`
+                                       ,`config`
+                                       ,`layout`)
+                                 VALUES
+                                (@appid , @title , @shareWith , @description , @user , @createdAt , @config , @layout)";
+
                 var command = connection.CreateCommand();
                 command.CommandText = statement;
-                command.Parameters.AddWithValue("@appid", System.Data.SqlDbType.VarChar).Value = model.appid ?? (object)DBNull.Value;
-                command.Parameters.AddWithValue("@title", System.Data.SqlDbType.NVarChar).Value = model.title ?? "";
-                command.Parameters.AddWithValue("@shareWith", System.Data.SqlDbType.VarChar).Value = model.shareWith ?? "";
-                command.Parameters.AddWithValue("@description", System.Data.SqlDbType.VarChar).Value = model.description ?? "";
-                command.Parameters.AddWithValue("@user", System.Data.SqlDbType.VarChar).Value = model.user ?? (object)DBNull.Value;
-                command.Parameters.AddWithValue("@createdAt", System.Data.SqlDbType.DateTime).Value = model.createdAt;
+                command.Parameters.Add(new MySqlParameter("@appid", MySqlDbType.VarChar) { Value = model.appid ?? (object)DBNull.Value });
+                command.Parameters.Add(new MySqlParameter("@title", MySqlDbType.VarChar) { Value = model.title ?? "" });
+                command.Parameters.Add(new MySqlParameter("@shareWith", MySqlDbType.VarChar) { Value = model.shareWith ?? "" });
+                command.Parameters.Add(new MySqlParameter("@description", MySqlDbType.VarChar) { Value = model.description ?? "" });
+                command.Parameters.Add(new MySqlParameter("@user", MySqlDbType.VarChar) { Value = model.user ?? (object)DBNull.Value });
+                command.Parameters.Add(new MySqlParameter("@createdAt", MySqlDbType.DateTime) { Value = model.createdAt.Value });
+
 
                 if (model.config != null)
                 {
-                    command.Parameters.AddWithValue("@config", System.Data.SqlDbType.NVarChar).Value = JsonConvert.SerializeObject(model.config);
+                    command.Parameters.Add(new MySqlParameter("@config", MySqlDbType.VarChar)
+                    {
+                        Value = JsonConvert.SerializeObject(model.config)
+                    });
+
                 }
                 else
                 {
-                    command.Parameters.AddWithValue("@config", System.Data.SqlDbType.NVarChar).Value = JsonConvert.SerializeObject(new Dictionary<string, object>());
+                    command.Parameters.Add(new MySqlParameter("@config", MySqlDbType.VarChar)
+                    {
+                        Value = JsonConvert.SerializeObject(new Dictionary<string, object>())
+                    });
                 }
 
                 if (model.layout != null)
                 {
-                    command.Parameters.AddWithValue("@layout", System.Data.SqlDbType.NVarChar).Value = JsonConvert.SerializeObject(model.layout);
+                    command.Parameters.Add(new MySqlParameter("@layout", MySqlDbType.MediumText)
+                    {
+                        Value = JsonConvert.SerializeObject(model.layout)
+                    });
                 }
                 else
                 {
-                    command.Parameters.AddWithValue("@layout", System.Data.SqlDbType.NVarChar).Value = JsonConvert.SerializeObject(new LayoutModel() { });
+                    command.Parameters.Add(new MySqlParameter("@layout", MySqlDbType.MediumText)
+                    {
+                        Value = JsonConvert.SerializeObject(new LayoutModel() { })
+                    });
                 }
 
                 try
                 {
                     connection.Open();
-                    var id = command.ExecuteScalar().ToString();
+                    var result = command.ExecuteScalar();
                     return new CreateResult() { id = command.LastInsertedId.ToString() };
                 }
                 finally
@@ -192,40 +208,42 @@ namespace JDash.NetCore.Provider.MySQL
 
         public virtual CreateResult CreateDashlet(DashletModel model)
         {
-            string statement = @"INSERT INTO dashlet
-           (moduleId
-           ,dashboardId
-           ,configuration
-           ,title
-           ,description
-           ,createdAt) 
-     VALUES
-           (@moduleId, @dashboardId , @configuration, @title, @description, @createdAt)";
+
 
             using (var connection = CreateConnection())
             {
+                string statement = @"INSERT INTO `" + connection.Database + @"`.`dashlet`
+                                       (`moduleId`
+                                       ,`dashboardId`
+                                       ,`configuration`
+                                       ,`title`
+                                       ,`description`
+                                       ,`createdAt`) 
+                                 VALUES
+                                       (@moduleId, @dashboardId , @configuration, @title, @description, @createdAt)";
                 var command = connection.CreateCommand();
                 command.CommandText = statement;
                 command.CommandType = System.Data.CommandType.Text;
-                command.Parameters.AddWithValue("@moduleId", System.Data.SqlDbType.NVarChar).Value = model.moduleId ?? (object)DBNull.Value;
-                command.Parameters.AddWithValue("@dashboardId", System.Data.SqlDbType.Int).Value = model.dashboardId ?? (object)DBNull.Value;
-                command.Parameters.AddWithValue("@title", System.Data.SqlDbType.NVarChar).Value = model.title ?? "";
-                command.Parameters.AddWithValue("@description", System.Data.SqlDbType.NVarChar).Value = model.description ?? "";
-                command.Parameters.AddWithValue("@createdAt", System.Data.SqlDbType.DateTime).Value = model.createdAt;
+                command.Parameters.Add(new MySqlParameter("@moduleId", MySqlDbType.VarChar) { Value = model.moduleId ?? (object)DBNull.Value });
+                command.Parameters.Add(new MySqlParameter("@dashboardId", MySqlDbType.Int32) { Value = (object)int.Parse(model.dashboardId) ?? (object)DBNull.Value });
+                command.Parameters.Add(new MySqlParameter("@title", MySqlDbType.VarChar) { Value = model.title ?? (object)DBNull.Value });
+                command.Parameters.Add(new MySqlParameter("@description", MySqlDbType.VarChar) { Value = model.description ?? "" });
+                command.Parameters.Add(new MySqlParameter("@createdAt", MySqlDbType.DateTime) { Value = model.createdAt.Value });
 
                 if (model.configuration != null)
                 {
-                    command.Parameters.AddWithValue("@configuration", System.Data.SqlDbType.NVarChar).Value = JsonConvert.SerializeObject(model.configuration);
+                    command.Parameters.Add(new MySqlParameter("@configuration", MySqlDbType.VarChar) { Value = JsonConvert.SerializeObject(model.configuration) });
+
                 }
                 else
                 {
-                    command.Parameters.AddWithValue("@configuration", System.Data.SqlDbType.NVarChar).Value = JsonConvert.SerializeObject(new Dictionary<string, object>());
+                    command.Parameters.Add(new MySqlParameter("@configuration", MySqlDbType.VarChar) { Value = JsonConvert.SerializeObject(new Dictionary<string, object>()) });
                 }
 
                 try
                 {
                     connection.Open();
-                    var id = command.ExecuteScalar().ToString();
+                    var result = command.ExecuteScalar();
                     return new CreateResult() { id = command.LastInsertedId.ToString() };
                 }
                 finally
@@ -245,9 +263,8 @@ namespace JDash.NetCore.Provider.MySQL
                 var command = connection.CreateCommand();
                 command.CommandText = statement;
                 command.CommandType = System.Data.CommandType.Text;
-
-                command.Parameters.AddWithValue("@appid", System.Data.SqlDbType.VarChar).Value = appid;
-                command.Parameters.AddWithValue("@id", System.Data.SqlDbType.Int).Value = int.Parse(id);
+                command.Parameters.Add(new MySqlParameter("@id", MySqlDbType.Int32) { Value = int.Parse(id) });
+                command.Parameters.Add(new MySqlParameter("@appid", MySqlDbType.VarChar) { Value = appid });
 
                 try
                 {
@@ -280,7 +297,7 @@ namespace JDash.NetCore.Provider.MySQL
                 {
                     var idParameter = idParameterNames.ElementAt(i);
                     var parameterValue = ids.ElementAt(i);
-                    command.Parameters.AddWithValue(idParameter, System.Data.SqlDbType.Int).Value = int.Parse(parameterValue);
+                    command.Parameters.Add(new MySqlParameter(idParameter, MySqlDbType.Int32) { Value = int.Parse(parameterValue) });
                 }
 
                 try
@@ -303,7 +320,7 @@ namespace JDash.NetCore.Provider.MySQL
                 var command = connection.CreateCommand();
                 command.CommandText = statement;
                 command.CommandType = System.Data.CommandType.Text;
-                command.Parameters.AddWithValue("@id", System.Data.SqlDbType.Int).Value = int.Parse(id);
+                command.Parameters.Add(new MySqlParameter("@id", MySqlDbType.Int32) { Value = int.Parse(id) });
 
                 try
                 {
@@ -341,10 +358,9 @@ namespace JDash.NetCore.Provider.MySQL
                 command.CommandType = System.Data.CommandType.Text;
 
                 if (!string.IsNullOrEmpty(model.dashboardId))
-                    command.Parameters.AddWithValue("@id", System.Data.SqlDbType.Int).Value = int.Parse(model.dashboardId);
+                    command.Parameters.Add(new MySqlParameter("@id", MySqlDbType.Int32) { Value = int.Parse(model.dashboardId) });
                 if (!string.IsNullOrEmpty(model.user))
-                    command.Parameters.AddWithValue("@user", System.Data.SqlDbType.NVarChar).Value = model.user;
-
+                    command.Parameters.Add(new MySqlParameter("@user", MySqlDbType.VarChar) { Value = int.Parse(model.user) });
 
                 try
                 {
@@ -379,7 +395,7 @@ namespace JDash.NetCore.Provider.MySQL
 
                 var command = connection.CreateCommand();
                 command.CommandType = System.Data.CommandType.Text;
-                command.Parameters.AddWithValue("@id", System.Data.SqlDbType.Int).Value = int.Parse(id);
+                command.Parameters.Add(new MySqlParameter("@id", MySqlDbType.Int32) { Value = int.Parse(id) });
 
                 string setValues = "";
 
@@ -387,9 +403,9 @@ namespace JDash.NetCore.Provider.MySQL
                 {
                     setValues += " " + key.Key + " = " + key.Value.Key + ",";
                     if (key.Value.Value == null)
-                        command.Parameters.AddWithValue(key.Value.Key, System.Data.SqlDbType.NVarChar).Value = DBNull.Value;
+                        command.Parameters.Add(new MySqlParameter(key.Value.Key, MySqlDbType.VarChar) { Value = DBNull.Value });
                     else
-                        command.Parameters.AddWithValue(key.Value.Key, System.Data.SqlDbType.NVarChar).Value = key.Value.Value;
+                        command.Parameters.Add(new MySqlParameter(key.Value.Key, MySqlDbType.VarChar) { Value = key.Value.Value });
                 }
                 setValues = setValues.TrimEnd(",".ToCharArray());
 
@@ -433,18 +449,23 @@ namespace JDash.NetCore.Provider.MySQL
 
                 var command = connection.CreateCommand();
                 command.CommandType = System.Data.CommandType.Text;
-                command.Parameters.AddWithValue("@id", System.Data.SqlDbType.Int).Value = int.Parse(id);
-                command.Parameters.AddWithValue("@appid", System.Data.SqlDbType.VarChar).Value = appid;
+                command.Parameters.Add(new MySqlParameter("@id", MySqlDbType.Int32) { Value = int.Parse(id) });
+                command.Parameters.Add(new MySqlParameter("@appid", MySqlDbType.VarChar) { Value = appid });
 
                 string setValues = "";
 
                 foreach (var key in keyValues)
                 {
                     setValues += " " + key.Key + " = " + key.Value.Key + ",";
+
+                    MySqlDbType dbType = MySqlDbType.VarChar;
+                    if (key.Key == "layout")
+                        dbType = MySqlDbType.MediumText;
+
                     if (key.Value.Value == null)
-                        command.Parameters.AddWithValue(key.Value.Key, System.Data.SqlDbType.NVarChar).Value = DBNull.Value;
+                        command.Parameters.Add(new MySqlParameter(key.Value.Key, dbType) { Value = DBNull.Value });
                     else
-                        command.Parameters.AddWithValue(key.Value.Key, System.Data.SqlDbType.NVarChar).Value = key.Value.Value;
+                        command.Parameters.Add(new MySqlParameter(key.Value.Key, dbType) { Value = key.Value.Value });
                 }
                 setValues = setValues.TrimEnd(",".ToCharArray());
 
@@ -503,13 +524,13 @@ namespace JDash.NetCore.Provider.MySQL
                 command.CommandType = System.Data.CommandType.Text;
 
                 if (!string.IsNullOrEmpty(searchDashboardModel.user))
-                    AddMultiParameter(queryBuilder, command, "user", searchDashboardModel.user, isUserArray, System.Data.SqlDbType.NVarChar);
+                    AddMultiParameter(queryBuilder, command, "user", searchDashboardModel.user, isUserArray, System.Data.SqlDbType.VarChar);
 
                 if (!string.IsNullOrEmpty(searchDashboardModel.appid))
                     AddMultiParameter(queryBuilder, command, "appId", searchDashboardModel.appid, isAppIdArray, System.Data.SqlDbType.VarChar);
 
                 if (!string.IsNullOrEmpty(searchDashboardModel.shareWith))
-                    AddMultiParameter(queryBuilder, command, "shareWith", searchDashboardModel.shareWith, isShareWithArray, System.Data.SqlDbType.NVarChar);
+                    AddMultiParameter(queryBuilder, command, "shareWith", searchDashboardModel.shareWith, isShareWithArray, System.Data.SqlDbType.VarChar);
 
                 // +1 is for "hasMore" result.
                 queryBuilder.Append(" order by createdAt limit " + (query.startFrom) + "," + (query.limit + 1));
@@ -545,7 +566,7 @@ namespace JDash.NetCore.Provider.MySQL
 
                 var command = connection.CreateCommand();
                 command.CommandText = sb.ToString();
-                command.Parameters.AddWithValue("@id", System.Data.SqlDbType.Int).Value = int.Parse(id);
+                command.Parameters.Add(new MySqlParameter("@id", MySqlDbType.Int32) { Value = int.Parse(id) });
                 command.CommandType = System.Data.CommandType.Text;
 
                 try
@@ -575,13 +596,13 @@ namespace JDash.NetCore.Provider.MySQL
                     if (i == valueCollection.Length - 1)
                     {
                         queryBuilder.Append("@" + key + i);
-                        command.Parameters.AddWithValue("@user" + i, type).Value = valueCollection[i];
                     }
                     else
                     {
                         queryBuilder.Append("@" + key + i + " , ");
-                        command.Parameters.AddWithValue("@" + key + i, type).Value = valueCollection[i];
                     }
+                    command.Parameters.Add(new MySqlParameter("@" + key + i, type) { Value = valueCollection[i] });
+
                 }
                 queryBuilder.Append(" )");
             }
@@ -589,7 +610,7 @@ namespace JDash.NetCore.Provider.MySQL
             {
 
                 queryBuilder.Append(" and " + key + " = @" + key + " ");
-                command.Parameters.AddWithValue("@" + key, type).Value = value;
+                command.Parameters.Add(new MySqlParameter("@" + key, type) { Value = value });
             }
         }
 
