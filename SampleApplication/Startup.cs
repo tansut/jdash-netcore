@@ -51,9 +51,8 @@ namespace WebApplication1
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            app.UseDefaultFiles();
             app.UseStaticFiles();
-
 
             app.UseMvc(routes =>
             {
@@ -61,29 +60,62 @@ namespace WebApplication1
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
- 
-            app.UseJDash<JDashConfigurator>();
 
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyHeader();
+                builder.AllowAnyMethod();
+                builder.AllowAnyOrigin();
+                builder.AllowCredentials();
+            });
+
+
+            app.UseJDash<JDashConfigurator>().UseCors(builder =>
+            {
+                builder.AllowAnyHeader();
+                builder.AllowAnyMethod();
+                builder.AllowAnyOrigin();
+                builder.AllowCredentials();
+            });
+
+        }
+
+        private void ServeStaticJDashPageHTML(IApplicationBuilder obj)
+        {
+            obj.Run((HttpContext context) =>
+            {
+                //context.Response.StatusCode = 200;
+                //context.Response.WriteAsync()
+                return null;
+            });
+        }
+
+        private bool CheckRequestIsNotJDash(HttpContext context)
+        {
+            return !(context.Request.Path.HasValue && context.Request.Path.ToString().Contains("jdash"));
         }
     }
 
     public class JDashConfigurator : BaseJDashConfigurator
-    { 
+    {
 
-        public JDashConfigurator(HttpContext context, bool ensureTablesCreated) : base(context, ensureTablesCreated)
+        public JDashConfigurator(HttpContext context) : base(context)
         {
-            this._ensureTablesCreated = true;
+            this.EnsureTablesCreated = true;
         }
 
 
         public override JDashPrincipalResult GetJDashPrincipal(string authorizationHeader)
-        { 
-            return new JDashPrincipalResult() { appid = "1", user = "1" };
+        {
+            // this part can be used for authentication of jdash requests
+            // this.HttpContext.User.Identity.Name can be used if you are using cookie authorization
+            // or you can use authorization header for custom jwt authentication.
+            var username = authorizationHeader.Substring("Bearer ".Length);
+            return new JDashPrincipalResult() { appid = "1", user = username };
         }
 
         public override IJDashPersistenceProvider GetPersistanceProvider()
         {
-            // 127.0.0.1 : 3306   root 
             string connectionString = "Server=localhost;Database=jdash_mysql_demo;Uid=root;Pwd=1234;";
             var provider = new JMySQLProvider(connectionString);
             return provider;

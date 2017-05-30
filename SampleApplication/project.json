@@ -22,7 +22,8 @@
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
     "JDash.NetCore.Api": "1.0.0-*",
     "JDash.NetCore.Provider.MsSQL": "1.0.0-*",
-    "JDash.NetCore.Provider.MySQL": "1.0.0-*"
+    "JDash.NetCore.Provider.MySQL": "1.0.0-*",
+    "System.IdentityModel.Tokens.Jwt": "5.0.0"
   },
 
   "tools": {
