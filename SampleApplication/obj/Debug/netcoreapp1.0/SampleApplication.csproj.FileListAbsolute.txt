@@ -1,0 +1,17 @@
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\bin\Debug\netcoreapp1.0\SampleApplication.deps.json
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\bin\Debug\netcoreapp1.0\SampleApplication.runtimeconfig.json
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\bin\Debug\netcoreapp1.0\SampleApplication.runtimeconfig.dev.json
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\obj\Debug\netcoreapp1.0\SampleApplication.csprojResolveAssemblyReference.cache
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\obj\Debug\netcoreapp1.0\SampleApplication.AssemblyInfo.cs
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\bin\Debug\netcoreapp1.0\SampleApplication.dll
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\bin\Debug\netcoreapp1.0\SampleApplication.pdb
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\bin\Debug\netcoreapp1.0\JDash.NetCore.Api.dll
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\bin\Debug\netcoreapp1.0\JDash.NetCore.Models.dll
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\bin\Debug\netcoreapp1.0\JDash.NetCore.Provider.MsSQL.dll
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\bin\Debug\netcoreapp1.0\JDash.NetCore.Provider.MySQL.dll
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\bin\Debug\netcoreapp1.0\JDash.NetCore.Api.pdb
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\bin\Debug\netcoreapp1.0\JDash.NetCore.Provider.MsSQL.pdb
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\bin\Debug\netcoreapp1.0\JDash.NetCore.Provider.MySQL.pdb
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\bin\Debug\netcoreapp1.0\JDash.NetCore.Models.pdb
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\obj\Debug\netcoreapp1.0\SampleApplication.dll
+D:\Projects\jdashv2\jdash-netcore\SampleApplication\obj\Debug\netcoreapp1.0\SampleApplication.pdb

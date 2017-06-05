@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JDash.NetCore.Provider.MySQL
 {
-    public class JMySQLProvider : IJDashPersistenceProvider
+    public class JMySQLProvider : IJDashProvider
     {
         private string connStr;
 

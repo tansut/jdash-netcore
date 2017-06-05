@@ -1,0 +1,9 @@
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MySQL\bin\Debug\netstandard1.6\JDash.NetCore.Provider.MySQL.deps.json
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MySQL\bin\Debug\netstandard1.6\JDash.NetCore.Provider.MySQL.dll
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MySQL\bin\Debug\netstandard1.6\JDash.NetCore.Provider.MySQL.pdb
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MySQL\bin\Debug\netstandard1.6\JDash.NetCore.Models.dll
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MySQL\bin\Debug\netstandard1.6\JDash.NetCore.Models.pdb
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MySQL\obj\Debug\netstandard1.6\JDash.NetCore.Provider.MySQL.csprojResolveAssemblyReference.cache
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MySQL\obj\Debug\netstandard1.6\JDash.NetCore.Provider.MySQL.AssemblyInfo.cs
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MySQL\obj\Debug\netstandard1.6\JDash.NetCore.Provider.MySQL.dll
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MySQL\obj\Debug\netstandard1.6\JDash.NetCore.Provider.MySQL.pdb

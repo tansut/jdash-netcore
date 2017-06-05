@@ -27,7 +27,7 @@ namespace JDash.NetCore.Models
     /// For implementation details you can ask our team.
     /// </summary>
     /// <seealso cref="System.IDisposable" />
-    public interface IJDashPersistenceProvider : IDisposable
+    public interface IJDashProvider : IDisposable
     {
         bool EnsureTablesCreated();
         GetDashboardResult GetDashboard(string appid, string id);

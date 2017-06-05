@@ -11,7 +11,7 @@ namespace JDash.NetCore.Api
     public class JDashApiController : Controller, IJDashController
     {
         private BaseJDashConfigurator _configurator;
-        private JDashPrincipalResult _principal;
+        private JDashPrincipal _principal;
         private BaseJDashConfigurator Configurator
         {
             get
@@ -25,7 +25,7 @@ namespace JDash.NetCore.Api
         }
 
 
-        private JDashPrincipalResult Principal
+        private JDashPrincipal Principal
         {
             get
             {
@@ -49,7 +49,7 @@ namespace JDash.NetCore.Api
         public ActionResult DeleteDashlet(string id)
         {
             var principal = this.Principal;
-            using (var persistance = this.Configurator.GetProvider())
+            using (var persistance = this.Configurator._GetProvider())
             {
                 var dashlet = persistance.GetDashlet(id);
                 if (dashlet == null)
@@ -72,7 +72,7 @@ namespace JDash.NetCore.Api
         public ActionResult CreateDashlet([FromBody] DashletCreateModel model)
         {
             var principal = this.Principal;
-            using (var persistance = this.Configurator.GetProvider())
+            using (var persistance = this.Configurator._GetProvider())
             {
 
                 var dashboard = persistance.GetDashboardById(principal.appid, model.dashboardId);
@@ -101,7 +101,7 @@ namespace JDash.NetCore.Api
         public ActionResult MyDashboards()
         {
             var principal = this.Principal;
-            using (var persistance = this.Configurator.GetProvider())
+            using (var persistance = this.Configurator._GetProvider())
             {
                 var dashboards = persistance.SearchDashboards(new SearchDashboardModel
                 {
@@ -117,7 +117,7 @@ namespace JDash.NetCore.Api
         public ActionResult DeleteDashboard(string id)
         {
             var principal = this.Principal;
-            using (var persistance = this.Configurator.GetProvider())
+            using (var persistance = this.Configurator._GetProvider())
             {
                 var dashboard = persistance.GetDashboardById(principal.appid, id);
                 if (dashboard == null)
@@ -136,7 +136,7 @@ namespace JDash.NetCore.Api
         public ActionResult GetDashboard(string id)
         {
             var principal = this.Principal;
-            using (var persistance = this.Configurator.GetProvider())
+            using (var persistance = this.Configurator._GetProvider())
             {
                 var dashboard = persistance.GetDashboard(principal.appid, id);
                 if (dashboard == null || dashboard.dashboard == null)
@@ -154,7 +154,7 @@ namespace JDash.NetCore.Api
         public ActionResult CreateDashboard([FromBody] DashboardCreateModel model)
         {
             var principal = this.Principal;
-            using (var persistance = this.Configurator.GetProvider())
+            using (var persistance = this.Configurator._GetProvider())
             {
                 var newModel = new DashboardModel
                 {
@@ -181,7 +181,7 @@ namespace JDash.NetCore.Api
 
             // FIXME : Search can be array of strings
             var principal = this.Principal;
-            using (var persistance = this.Configurator.GetProvider())
+            using (var persistance = this.Configurator._GetProvider())
             {
 
                 var searchResult = persistance.SearchDashboards(new SearchDashboardModel
@@ -200,7 +200,7 @@ namespace JDash.NetCore.Api
         public ActionResult SaveDashboard([FromRoute]string id, [FromBody] DashboardUpdateModel updateValues)
         {
             var principal = this.Principal;
-            using (var persistance = this.Configurator.GetProvider())
+            using (var persistance = this.Configurator._GetProvider())
             {
 
                 var dashboardResult = persistance.GetDashboard(principal.appid, id);
@@ -233,7 +233,7 @@ namespace JDash.NetCore.Api
         public ActionResult SaveDashlet([FromRoute]string id, [FromBody]DashletUpdateModel updateValues)
         {
             var principal = this.Principal;
-            using (var persistance = this.Configurator.GetProvider())
+            using (var persistance = this.Configurator._GetProvider())
             {
                 var dashlet = persistance.GetDashlet(id);
                 if (dashlet == null)

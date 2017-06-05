@@ -1,0 +1,7 @@
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Models\bin\Debug\netstandard1.6\JDash.NetCore.Models.deps.json
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Models\bin\Debug\netstandard1.6\JDash.NetCore.Models.dll
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Models\bin\Debug\netstandard1.6\JDash.NetCore.Models.pdb
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Models\obj\Debug\netstandard1.6\JDash.NetCore.Models.csprojResolveAssemblyReference.cache
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Models\obj\Debug\netstandard1.6\JDash.NetCore.Models.AssemblyInfo.cs
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Models\obj\Debug\netstandard1.6\JDash.NetCore.Models.dll
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Models\obj\Debug\netstandard1.6\JDash.NetCore.Models.pdb

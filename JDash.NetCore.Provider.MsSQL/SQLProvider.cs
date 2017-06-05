@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace JDash.NetCore.Provider.MsSQL
 {
-    public class JSQLProvider : IJDashPersistenceProvider
+    public class JSQLProvider : IJDashProvider
     {
         private string connStr;
         private string defaultScheme;

@@ -8,7 +8,7 @@ namespace JDash.NetCore.Models
    
     public interface IPrincipalResolver
     {
-        void SetPrincipal(JDashPrincipalResult principal);
-        JDashPrincipalResult GetPrincipal();
+        void SetPrincipal(JDashPrincipal principal);
+        JDashPrincipal GetPrincipal();
     }
 }

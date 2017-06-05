@@ -104,17 +104,17 @@ namespace WebApplication1
             this.EnsureTablesCreated = true;
         }
 
-
-        public override JDashPrincipalResult GetJDashPrincipal(string authorizationHeader)
+        public override JDashPrincipal GetPrincipal(string authorizationHeader)
         {
+
             // this part can be used for authentication of jdash requests
             // this.HttpContext.User.Identity.Name can be used if you are using cookie authorization
             // or you can use authorization header for custom jwt authentication.
             var username = authorizationHeader.Substring("Bearer ".Length);
-            return new JDashPrincipalResult() { appid = "1", user = username };
+            return new JDashPrincipal(user: username) { appid = "1", };
         }
 
-        public override IJDashPersistenceProvider GetPersistanceProvider()
+        public override IJDashProvider GetProvider()
         {
             string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=DemoJDash;Integrated Security=SSPI;";
             var provider = new JSQLProvider(connectionString);

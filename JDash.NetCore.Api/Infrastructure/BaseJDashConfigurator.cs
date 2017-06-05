@@ -29,9 +29,9 @@ namespace JDash.NetCore.Api
             set { ensureTablesCreated = value; }
         }
 
-        internal JDashPrincipalResult GetDecryptedPrincipal()
+        internal JDashPrincipal GetDecryptedPrincipal()
         {
-            return this.GetJDashPrincipal(this.AuthorizationHeader);
+            return this.GetPrincipal(this.AuthorizationHeader);
         }
 
         /// <summary>
@@ -39,11 +39,11 @@ namespace JDash.NetCore.Api
         /// </summary>
         /// <param name="authorizationHeader">The authorization header of http request, this header will be encrypted as JWT that you have encrypted before.</param>
         /// <returns>UnEncrypted User and Application Information</returns>
-        public abstract JDashPrincipalResult GetJDashPrincipal(string authorizationHeader);
+        public abstract JDashPrincipal GetPrincipal(string authorizationHeader);
 
-        internal IJDashPersistenceProvider GetProvider()
+        internal IJDashProvider _GetProvider()
         {
-            var provider = GetPersistanceProvider();
+            var provider = GetProvider();
             if (EnsureTablesCreated && !_dbCreated)
             {
                 provider.EnsureTablesCreated();
@@ -51,6 +51,6 @@ namespace JDash.NetCore.Api
             }
             return provider;
         }
-        public abstract IJDashPersistenceProvider GetPersistanceProvider();
+        public abstract IJDashProvider GetProvider();
     }
 }

@@ -12,7 +12,7 @@ namespace JDash.NetCore.Models
         [CanBeNull]
         public Dictionary<string, object> config { get; set; }
 
-        public Dictionary<string, DashletPositionModel> dashlets { get; set; }
-
+        public Dictionary<string, DashletOfLayoutModel> dashlets { get; set; }
+        
     }
 }

@@ -1,0 +1,9 @@
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MsSQL\bin\Debug\netstandard1.6\JDash.NetCore.Provider.MsSQL.deps.json
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MsSQL\bin\Debug\netstandard1.6\JDash.NetCore.Provider.MsSQL.dll
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MsSQL\bin\Debug\netstandard1.6\JDash.NetCore.Provider.MsSQL.pdb
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MsSQL\bin\Debug\netstandard1.6\JDash.NetCore.Models.dll
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MsSQL\bin\Debug\netstandard1.6\JDash.NetCore.Models.pdb
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MsSQL\obj\Debug\netstandard1.6\JDash.NetCore.Provider.MsSQL.csprojResolveAssemblyReference.cache
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MsSQL\obj\Debug\netstandard1.6\JDash.NetCore.Provider.MsSQL.AssemblyInfo.cs
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MsSQL\obj\Debug\netstandard1.6\JDash.NetCore.Provider.MsSQL.dll
+D:\Projects\jdashv2\jdash-netcore\JDash.NetCore.Provider.MsSQL\obj\Debug\netstandard1.6\JDash.NetCore.Provider.MsSQL.pdb
