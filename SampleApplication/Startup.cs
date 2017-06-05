@@ -116,8 +116,8 @@ namespace WebApplication1
 
         public override IJDashPersistenceProvider GetPersistanceProvider()
         {
-            string connectionString = "Server=localhost;Database=jdash_mysql_demo;Uid=root;Pwd=1234;";
-            var provider = new JMySQLProvider(connectionString);
+            string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=DemoJDash;Integrated Security=SSPI;";
+            var provider = new JSQLProvider(connectionString);
             return provider;
         }
     }

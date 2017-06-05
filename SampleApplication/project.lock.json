@@ -4101,11 +4101,11 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "JDash.NetCore.Api/1.0.0": {
+      "JDash.NetCore.Api/1.0.1": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
-          "JDash.NetCore.Models": "1.0.0",
+          "JDash.NetCore.Models": "1.0.1",
           "Microsoft.AspNetCore.Hosting": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "1.0.0",
           "NETStandard.Library": "1.6.0"
@@ -4117,7 +4117,7 @@
           "netstandard1.6/JDash.NetCore.Api.dll": {}
         }
       },
-      "JDash.NetCore.Models/1.0.0": {
+      "JDash.NetCore.Models/1.0.1": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
@@ -4134,7 +4134,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
-          "JDash.NetCore.Models": "1.0.0",
+          "JDash.NetCore.Models": "1.0.1",
           "NETStandard.Library": "1.6.0",
           "Newtonsoft.Json": "9.0.1",
           "System.Data.SqlClient": "4.1.0"
@@ -4146,11 +4146,11 @@
           "netstandard1.6/JDash.NetCore.Provider.MsSQL.dll": {}
         }
       },
-      "JDash.NetCore.Provider.MySQL/1.0.0": {
+      "JDash.NetCore.Provider.MySQL/1.0.3": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
-          "JDash.NetCore.Models": "1.0.0",
+          "JDash.NetCore.Models": "1.0.1",
           "MySql.Data": "7.0.7-m61",
           "NETStandard.Library": "1.6.0"
         },
@@ -10538,12 +10538,12 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "JDash.NetCore.Api/1.0.0": {
+    "JDash.NetCore.Api/1.0.1": {
       "type": "project",
       "path": "../JDash.NetCore.Api/project.json",
       "msbuildProject": "../JDash.NetCore.Api/JDash.NetCore.Api.xproj"
     },
-    "JDash.NetCore.Models/1.0.0": {
+    "JDash.NetCore.Models/1.0.1": {
       "type": "project",
       "path": "../JDash.NetCore.Models/project.json",
       "msbuildProject": "../JDash.NetCore.Models/JDash.NetCore.Models.xproj"
@@ -10553,7 +10553,7 @@
       "path": "../JDash.NetCore.Provider.MsSQL/project.json",
       "msbuildProject": "../JDash.NetCore.Provider.MsSQL/JDash.NetCore.Provider.MsSQL.xproj"
     },
-    "JDash.NetCore.Provider.MySQL/1.0.0": {
+    "JDash.NetCore.Provider.MySQL/1.0.3": {
       "type": "project",
       "path": "../JDash.NetCore.Provider.MySQL/project.json",
       "msbuildProject": "../JDash.NetCore.Provider.MySQL/JDash.NetCore.Provider.MySQL.xproj"

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JDash.NetCore.Models; 
+using JDash.NetCore.Models;
 using JDash.NetCore.Api.Models;
 
 namespace JDash.NetCore.Api
@@ -18,7 +18,7 @@ namespace JDash.NetCore.Api
             {
                 if (_configurator == null)
                 {
-                    _configurator = (BaseJDashConfigurator)Activator.CreateInstance(Configuration.ConfiguratorType, new object[] { this.HttpContext, true });
+                    _configurator = (BaseJDashConfigurator)Activator.CreateInstance(Configuration.ConfiguratorType, new object[] { this.HttpContext });
                 }
                 return _configurator;
             }
@@ -151,7 +151,7 @@ namespace JDash.NetCore.Api
 
 
         [HttpPost("dashboard/create")]
-        public ActionResult CreateDashboard(DashboardCreateModel model)
+        public ActionResult CreateDashboard([FromBody] DashboardCreateModel model)
         {
             var principal = this.Principal;
             using (var persistance = this.Configurator.GetProvider())
@@ -176,7 +176,7 @@ namespace JDash.NetCore.Api
 
 
         [HttpPost("dashboard/search")]
-        public ActionResult SearchDashboards(SearchDashboardsModelWithQuery search)
+        public ActionResult SearchDashboards([FromBody] SearchDashboardsModelWithQuery search)
         {
 
             // FIXME : Search can be array of strings

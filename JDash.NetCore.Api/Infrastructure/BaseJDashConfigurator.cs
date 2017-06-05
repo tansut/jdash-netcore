@@ -11,17 +11,23 @@ namespace JDash.NetCore.Api
     public abstract class BaseJDashConfigurator
     {
         protected readonly HttpContext HttpContext;
-        protected bool _ensureTablesCreated;
+        private bool ensureTablesCreated;
         private static bool _dbCreated = false;
 
-        public BaseJDashConfigurator(HttpContext context, bool ensureTablesCreated)
+        public BaseJDashConfigurator(HttpContext context)
         {
             this.HttpContext = context;
-            this._ensureTablesCreated = ensureTablesCreated;
+            this.EnsureTablesCreated = true;
             this.AuthorizationHeader = context.Request.Headers["Authorization"];
         }
 
         public string AuthorizationHeader { get; private set; }
+
+        protected bool EnsureTablesCreated
+        {
+            get { return ensureTablesCreated; }
+            set { ensureTablesCreated = value; }
+        }
 
         internal JDashPrincipalResult GetDecryptedPrincipal()
         {
@@ -38,7 +44,7 @@ namespace JDash.NetCore.Api
         internal IJDashPersistenceProvider GetProvider()
         {
             var provider = GetPersistanceProvider();
-            if (_ensureTablesCreated && !_dbCreated)
+            if (EnsureTablesCreated && !_dbCreated)
             {
                 provider.EnsureTablesCreated();
                 _dbCreated = true;

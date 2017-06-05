@@ -6,7 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7D3FCDD5-B1AA-4503-B00D-78A533F5224F}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
-		..\global.json = ..\global.json
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "JDash.NetCore.Provider.MsSQL", "JDash.NetCore.Provider.MsSQL\JDash.NetCore.Provider.MsSQL.xproj", "{5703A839-6690-4085-939E-6FFB0846F0A3}"
@@ -19,32 +18,48 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "JDash.NetCore.Api", "JDash.
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "JDash.NetCore.Provider.MySQL", "JDash.NetCore.Provider.MySQL\JDash.NetCore.Provider.MySQL.xproj", "{60CAB8F8-7A25-4E78-8F0E-0714A234A516}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Util", "Util", "{F392CF1A-B7CE-4ACE-B397-7457F19B5F48}"
+	ProjectSection(SolutionItems) = preProject
+		build.nuget.bat = build.nuget.bat
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		ReleaseNET40_Only|Any CPU = ReleaseNET40_Only|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5703A839-6690-4085-939E-6FFB0846F0A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5703A839-6690-4085-939E-6FFB0846F0A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5703A839-6690-4085-939E-6FFB0846F0A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5703A839-6690-4085-939E-6FFB0846F0A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5703A839-6690-4085-939E-6FFB0846F0A3}.ReleaseNET40_Only|Any CPU.ActiveCfg = Release|Any CPU
+		{5703A839-6690-4085-939E-6FFB0846F0A3}.ReleaseNET40_Only|Any CPU.Build.0 = Release|Any CPU
 		{3170DAD6-3953-4A89-BC81-5EE63BC72900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3170DAD6-3953-4A89-BC81-5EE63BC72900}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3170DAD6-3953-4A89-BC81-5EE63BC72900}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3170DAD6-3953-4A89-BC81-5EE63BC72900}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3170DAD6-3953-4A89-BC81-5EE63BC72900}.ReleaseNET40_Only|Any CPU.ActiveCfg = Release|Any CPU
+		{3170DAD6-3953-4A89-BC81-5EE63BC72900}.ReleaseNET40_Only|Any CPU.Build.0 = Release|Any CPU
 		{3D5CC59A-FDCE-43ED-AA96-63FBB852082A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3D5CC59A-FDCE-43ED-AA96-63FBB852082A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D5CC59A-FDCE-43ED-AA96-63FBB852082A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D5CC59A-FDCE-43ED-AA96-63FBB852082A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D5CC59A-FDCE-43ED-AA96-63FBB852082A}.ReleaseNET40_Only|Any CPU.ActiveCfg = Release|Any CPU
+		{3D5CC59A-FDCE-43ED-AA96-63FBB852082A}.ReleaseNET40_Only|Any CPU.Build.0 = Release|Any CPU
 		{8EBA7CF2-52B5-4652-9B1B-1EAEDDE36F2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8EBA7CF2-52B5-4652-9B1B-1EAEDDE36F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EBA7CF2-52B5-4652-9B1B-1EAEDDE36F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EBA7CF2-52B5-4652-9B1B-1EAEDDE36F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EBA7CF2-52B5-4652-9B1B-1EAEDDE36F2A}.ReleaseNET40_Only|Any CPU.ActiveCfg = Release|Any CPU
+		{8EBA7CF2-52B5-4652-9B1B-1EAEDDE36F2A}.ReleaseNET40_Only|Any CPU.Build.0 = Release|Any CPU
 		{60CAB8F8-7A25-4E78-8F0E-0714A234A516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{60CAB8F8-7A25-4E78-8F0E-0714A234A516}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60CAB8F8-7A25-4E78-8F0E-0714A234A516}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60CAB8F8-7A25-4E78-8F0E-0714A234A516}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60CAB8F8-7A25-4E78-8F0E-0714A234A516}.ReleaseNET40_Only|Any CPU.ActiveCfg = Release|Any CPU
+		{60CAB8F8-7A25-4E78-8F0E-0714A234A516}.ReleaseNET40_Only|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

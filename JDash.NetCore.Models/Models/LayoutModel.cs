@@ -7,7 +7,7 @@ namespace JDash.NetCore.Models
 {
     public class LayoutModel
     {
-        public string moduleId { get; set; }
+        public string module { get; set; }
 
         [CanBeNull]
         public Dictionary<string, object> config { get; set; }

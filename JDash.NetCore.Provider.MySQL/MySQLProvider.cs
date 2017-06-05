@@ -24,6 +24,11 @@ namespace JDash.NetCore.Provider.MySQL
             return new MySqlConnection(this.connStr);
         }
 
+        /// <summary>
+        /// Ensures the tables are created.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="System.Exception">Dashlet/Dashboard Table Creation Failed on SQL Server Please Check If Database Created and Dashboard and Dashlet tables do not exists.</exception>
         public virtual bool EnsureTablesCreated()
         {
 
@@ -524,13 +529,13 @@ namespace JDash.NetCore.Provider.MySQL
                 command.CommandType = System.Data.CommandType.Text;
 
                 if (!string.IsNullOrEmpty(searchDashboardModel.user))
-                    AddMultiParameter(queryBuilder, command, "user", searchDashboardModel.user, isUserArray, System.Data.SqlDbType.VarChar);
+                    AddMultiParameter(queryBuilder, command, "user", searchDashboardModel.user, isUserArray, MySqlDbType.VarChar);
 
                 if (!string.IsNullOrEmpty(searchDashboardModel.appid))
-                    AddMultiParameter(queryBuilder, command, "appId", searchDashboardModel.appid, isAppIdArray, System.Data.SqlDbType.VarChar);
+                    AddMultiParameter(queryBuilder, command, "appId", searchDashboardModel.appid, isAppIdArray, MySqlDbType.VarChar);
 
                 if (!string.IsNullOrEmpty(searchDashboardModel.shareWith))
-                    AddMultiParameter(queryBuilder, command, "shareWith", searchDashboardModel.shareWith, isShareWithArray, System.Data.SqlDbType.VarChar);
+                    AddMultiParameter(queryBuilder, command, "shareWith", searchDashboardModel.shareWith, isShareWithArray, MySqlDbType.VarChar);
 
                 // +1 is for "hasMore" result.
                 queryBuilder.Append(" order by createdAt limit " + (query.startFrom) + "," + (query.limit + 1));
@@ -584,7 +589,7 @@ namespace JDash.NetCore.Provider.MySQL
             }
         }
 
-        private void AddMultiParameter(StringBuilder queryBuilder, MySqlCommand command, string key, string value, bool isMultiple, System.Data.SqlDbType type)
+        private void AddMultiParameter(StringBuilder queryBuilder, MySqlCommand command, string key, string value, bool isMultiple, MySqlDbType type)
         {
             // this method should add multiple keys for "in" clause ,if not defined multiple it will just add key,value as parameters.
             if (isMultiple)

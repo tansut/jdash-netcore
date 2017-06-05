@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 namespace JDash.NetCore.Provider.MySQL.Scripts
 {
     public class TableCreationScripts
-    {
-        // CREATE SCHEMA `jdash_mysql_demo` ;
-
+    { 
         public static string DashboardCreateScript = @"CREATE TABLE `dashboard` (
                                                           `id` int(20) NOT NULL AUTO_INCREMENT,
                                                           `appId` varchar(45) NOT NULL,

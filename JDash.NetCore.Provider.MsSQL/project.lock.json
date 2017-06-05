@@ -1532,7 +1532,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "JDash.NetCore.Models/1.0.0": {
+      "JDash.NetCore.Models/1.0.1": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
@@ -5231,7 +5231,7 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "JDash.NetCore.Models/1.0.0": {
+    "JDash.NetCore.Models/1.0.1": {
       "type": "project",
       "path": "../JDash.NetCore.Models/project.json",
       "msbuildProject": "../JDash.NetCore.Models/JDash.NetCore.Models.xproj"
@@ -5239,7 +5239,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "JDash.NetCore.Models >= 1.0.0-*",
+      "JDash.NetCore.Models >= 1.0.1-*",
       "NETStandard.Library >= 1.6.0",
       "Newtonsoft.Json >= 9.0.1",
       "System.Data.SqlClient >= 4.1.0"
