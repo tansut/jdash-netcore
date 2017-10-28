@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETStandard,Version=v1.6": {
       "Microsoft.NETCore.Platforms/1.0.1": {
@@ -4020,23 +4020,39 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Volkan\\.nuget\\packages\\": {}
+    "/Users/tansut/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.4",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Models\\JDash.NetCore.Models.csproj",
+      "projectUniqueName": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Models/JDash.NetCore.Models.csproj",
       "projectName": "JDash.NetCore.Models",
-      "projectPath": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Models\\JDash.NetCore.Models.csproj",
-      "outputPath": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Models\\obj\\",
+      "projectPath": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Models/JDash.NetCore.Models.csproj",
+      "packagesPath": "/Users/tansut/.nuget/packages/",
+      "outputPath": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Models/obj/",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "/Users/tansut/.nuget/NuGet/NuGet.Config"
+      ],
       "originalTargetFrameworks": [
         "netstandard1.6"
       ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netstandard1.6": {
           "projectReferences": {}
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {

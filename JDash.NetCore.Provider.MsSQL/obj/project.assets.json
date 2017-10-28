@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETStandard,Version=v1.6": {
       "Microsoft.CSharp/4.0.1": {
@@ -1536,6 +1536,12 @@
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
           "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "bin/placeholder/JDash.NetCore.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/JDash.NetCore.Models.dll": {}
         }
       }
     }
@@ -5239,27 +5245,43 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Volkan\\.nuget\\packages\\": {}
+    "/Users/tansut/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.2",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Provider.MsSQL\\JDash.NetCore.Provider.MsSQL.csproj",
+      "projectUniqueName": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Provider.MsSQL/JDash.NetCore.Provider.MsSQL.csproj",
       "projectName": "JDash.NetCore.Provider.MsSQL",
-      "projectPath": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Provider.MsSQL\\JDash.NetCore.Provider.MsSQL.csproj",
-      "outputPath": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Provider.MsSQL\\obj\\",
+      "projectPath": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Provider.MsSQL/JDash.NetCore.Provider.MsSQL.csproj",
+      "packagesPath": "/Users/tansut/.nuget/packages/",
+      "outputPath": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Provider.MsSQL/obj/",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "/Users/tansut/.nuget/NuGet/NuGet.Config"
+      ],
       "originalTargetFrameworks": [
         "netstandard1.6"
       ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netstandard1.6": {
           "projectReferences": {
-            "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Models\\JDash.NetCore.Models.csproj": {
-              "projectPath": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Models\\JDash.NetCore.Models.csproj"
+            "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Models/JDash.NetCore.Models.csproj": {
+              "projectPath": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Models/JDash.NetCore.Models.csproj"
             }
           }
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
@@ -5270,13 +5292,13 @@
             "version": "1.6.0",
             "autoReferenced": true
           },
-          "System.Data.SqlClient": {
-            "target": "Package",
-            "version": "4.1.0"
-          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "9.0.1"
+          },
+          "System.Data.SqlClient": {
+            "target": "Package",
+            "version": "4.1.0"
           }
         },
         "imports": [

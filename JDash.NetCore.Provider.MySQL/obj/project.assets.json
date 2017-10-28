@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETStandard,Version=v1.6": {
       "Google.Protobuf/3.0.0": {
@@ -2032,6 +2032,12 @@
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
           "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "bin/placeholder/JDash.NetCore.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/JDash.NetCore.Models.dll": {}
         }
       }
     }
@@ -6430,40 +6436,56 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Volkan\\.nuget\\packages\\": {}
+    "/Users/tansut/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.5",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Provider.MySQL\\JDash.NetCore.Provider.MySQL.csproj",
+      "projectUniqueName": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Provider.MySQL/JDash.NetCore.Provider.MySQL.csproj",
       "projectName": "JDash.NetCore.Provider.MySQL",
-      "projectPath": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Provider.MySQL\\JDash.NetCore.Provider.MySQL.csproj",
-      "outputPath": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Provider.MySQL\\obj\\",
+      "projectPath": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Provider.MySQL/JDash.NetCore.Provider.MySQL.csproj",
+      "packagesPath": "/Users/tansut/.nuget/packages/",
+      "outputPath": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Provider.MySQL/obj/",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "/Users/tansut/.nuget/NuGet/NuGet.Config"
+      ],
       "originalTargetFrameworks": [
         "netstandard1.6"
       ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netstandard1.6": {
           "projectReferences": {
-            "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Models\\JDash.NetCore.Models.csproj": {
-              "projectPath": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Models\\JDash.NetCore.Models.csproj"
+            "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Models/JDash.NetCore.Models.csproj": {
+              "projectPath": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Models/JDash.NetCore.Models.csproj"
             }
           }
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
       "netstandard1.6": {
         "dependencies": {
-          "MySql.Data": {
-            "target": "Package",
-            "version": "7.0.7-m61"
-          },
           "NETStandard.Library": {
             "target": "Package",
             "version": "1.6.0",
             "autoReferenced": true
+          },
+          "MySql.Data": {
+            "target": "Package",
+            "version": "7.0.7-m61"
           }
         },
         "imports": [

@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETStandard,Version=v1.6": {
       "Microsoft.AspNetCore.Antiforgery/1.0.3": {
@@ -2744,6 +2744,12 @@
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
           "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "bin/placeholder/JDash.NetCore.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/JDash.NetCore.Models.dll": {}
         }
       }
     }
@@ -3302,7 +3308,7 @@
       ]
     },
     "Microsoft.Extensions.Caching.Abstractions/1.0.2": {
-      "sha512": "ADlnM6mUha0qf4uQ+AA2K6AQCvqIMsx/VXhBU1PTjTNchHyoAppeY5C0EP9wcEBdBICulR829znn5IcKFRn5pg==",
+      "sha512": "DAfaRaTx6fzsL31iekmcwJBxNCk2rT/S0X0ylV0CBSlW5NNLYfqWBD9BxE0HT6biYi5OOgvokUSQAALMCixfbA==",
       "type": "package",
       "path": "microsoft.extensions.caching.abstractions/1.0.2",
       "files": [
@@ -3313,7 +3319,7 @@
       ]
     },
     "Microsoft.Extensions.Caching.Memory/1.0.2": {
-      "sha512": "glTmmszIcve083iy1Gqdm8uwIDrJxBo424LJVQfT85ykGU5ou6Sn1/PrdxLXPqoJM8Lk1JJRLwYPYoZaoa0EKQ==",
+      "sha512": "Tj+Z5r73uUv2wtAhXbnpSJr020ZxmVbazX5zDbQ9yUCS0pZ+VxhQDl/rVlceW+wfBoevLX7EM7ifAmRz33Fvww==",
       "type": "package",
       "path": "microsoft.extensions.caching.memory/1.0.2",
       "files": [
@@ -3326,7 +3332,7 @@
       ]
     },
     "Microsoft.Extensions.Configuration/1.0.2": {
-      "sha512": "QtDUMascx5HVaTZSC9Q0tZwlEX4GkrX/2wp6KavN3IeU3xD6h9f+1nzePgmogLhZgLJ7wrQh6u3qqariq1gJ1g==",
+      "sha512": "x3Qr1UiCu/w1k/9zoz2I8Yo1TklpG124w630yhokrEdLeE0AdP21oe7jnc4tLSjuhAd3PwF1SFEuWE+8oKtD6g==",
       "type": "package",
       "path": "microsoft.extensions.configuration/1.0.2",
       "files": [
@@ -3337,7 +3343,7 @@
       ]
     },
     "Microsoft.Extensions.Configuration.Abstractions/1.0.2": {
-      "sha512": "QKKP/h5rqjuXQ/0RoI1SK3ksMvQrEl9isYWi9JSm4wsFWjxZ6792fPY4wL9WAr+38FHh3WFDzNwc/9YJRgqSCA==",
+      "sha512": "5aHSVQ7TdCbnl5IOD7rsdG2ws+wvhn2InamgspTlEbnJJM8zIXEQtxlazwX/F3d850WiDCci65+DN3Q2XScPHA==",
       "type": "package",
       "path": "microsoft.extensions.configuration.abstractions/1.0.2",
       "files": [
@@ -3348,7 +3354,7 @@
       ]
     },
     "Microsoft.Extensions.Configuration.EnvironmentVariables/1.0.2": {
-      "sha512": "IgdMXE4wRMoj5O1NKY+hb4hMoMzfKGDheJCq19awnGRX3Do1pNK8iWUPYgpLn8g2axtbmGLoz6L3K97VRzGACQ==",
+      "sha512": "3nWY78z4aYJROUTiEVgh7Yt/V2Alt/atnh247iv9teq/JOjAQcDjwGYpcpSKLupoyTf4wppQvLgI7K6VloJ7xg==",
       "type": "package",
       "path": "microsoft.extensions.configuration.environmentvariables/1.0.2",
       "files": [
@@ -3361,7 +3367,7 @@
       ]
     },
     "Microsoft.Extensions.DependencyInjection/1.0.2": {
-      "sha512": "sBvp0iBl/jXPe2XdMHxlhGSSTi4m9O7ArupXyMZ1TVISR/f36H4bv7MvkVogsFjQ2S6kiIA7s63a+MMC3J0WqQ==",
+      "sha512": "Kkdl8i29YlP7dBWOW54gpicLP8PD5/SkCch+rcOnLF7CqKkgKeRUFGRmE25lQhs+ceVMJ7zfIU3+dczTGPc8Gg==",
       "type": "package",
       "path": "microsoft.extensions.dependencyinjection/1.0.2",
       "files": [
@@ -3372,7 +3378,7 @@
       ]
     },
     "Microsoft.Extensions.DependencyInjection.Abstractions/1.0.2": {
-      "sha512": "FqBMUHfxvpohyBrNGLGznLSOOKEaHpABA161A2xtUFgwEkD5yY64vjH+XJgZ7yElM6K+zBAorVRd7HfZp2RVqg==",
+      "sha512": "WkGC+aQVBFXlrZcQav1WOiuYCgjLKBYnWW0z67ImNcOiSEQH4O6riyVNiwkrh8UGgQsQqYVSizFZ44UrPN17kg==",
       "type": "package",
       "path": "microsoft.extensions.dependencyinjection.abstractions/1.0.2",
       "files": [
@@ -3394,7 +3400,7 @@
       ]
     },
     "Microsoft.Extensions.FileProviders.Abstractions/1.0.1": {
-      "sha512": "UkgRQDbAWgGZbIQeZ+SpZIPWbv/tzRgNgbR13ayJnklCB1HBCWRrW98ORQ6Ag3X8ecevLHwVW+4gJCB6lTUzhA==",
+      "sha512": "buv6KsRtHpyh2tpCIt1bG6KAWFIbuCp6HtqrYDH9w+WZmzbNYAoYyoEFmc1czCO5VvoQ9ufMGCkZOe6I++h30g==",
       "type": "package",
       "path": "microsoft.extensions.fileproviders.abstractions/1.0.1",
       "files": [
@@ -3405,7 +3411,7 @@
       ]
     },
     "Microsoft.Extensions.FileProviders.Composite/1.0.1": {
-      "sha512": "FC/im1TgbHvXqV2r35c6YoIQsMMCI9GQZ9bFn4EAQWfl8u84U5y/lHRTdTV/HNXpwkmaNtCkuLyDXywVqGZrYQ==",
+      "sha512": "SO0xOYKdibyP5aPFzFYYhmX94V52UROjnrWInEjKvxXI0fPM/bviiM9vfJFOx8Wd85nvif1Fy5GaQU6/Z2pPnw==",
       "type": "package",
       "path": "microsoft.extensions.fileproviders.composite/1.0.1",
       "files": [
@@ -3416,7 +3422,7 @@
       ]
     },
     "Microsoft.Extensions.FileProviders.Physical/1.0.1": {
-      "sha512": "c76Y5GpVCvMUIYSDFwlj29QXHioKbLo8Wy3VjTIhHyylFHgn8yOPpy9fzL4fMx2dOQLo1z+Z3YD+M/BrNASFgg==",
+      "sha512": "TNpDkprNsoRYgi2vKqzs+fO4uS+zCXlCx3OllkcobxMI2+vMi9W+stkiQ/vaINDpryhdEx/hMj7gmND1qrZnZA==",
       "type": "package",
       "path": "microsoft.extensions.fileproviders.physical/1.0.1",
       "files": [
@@ -3429,7 +3435,7 @@
       ]
     },
     "Microsoft.Extensions.FileSystemGlobbing/1.0.1": {
-      "sha512": "AX3wVJGocypmYnN+z/SQdhGkbGP8IGePV2iz5Temh2xN7aTi6H8mFlPc/V6dz0sgpiRXsKDNaztHTrk52D9mrw==",
+      "sha512": "nkQdGxdUmFhKuhNUoSPjJVuSkK2RLtoJ9euGem+rAfwD/9050WuEQJeuaA2VkuK5yIO9FLdVQQiIZ1y+WSH/BQ==",
       "type": "package",
       "path": "microsoft.extensions.filesystemglobbing/1.0.1",
       "files": [
@@ -3477,7 +3483,7 @@
       ]
     },
     "Microsoft.Extensions.Logging/1.0.2": {
-      "sha512": "/vCggL0jqZ2R0TxJZDlxmEru7wIUY06SGS9eXpR8IyctkEF90OUDDZ3+LLXNhqPzP4qvwNPiNEtB4mOClAHPig==",
+      "sha512": "EzXqOZHdPOQEK+tN7II2NbDu8nsvRvZceJqmL+5bpfSUoloRt82QA66rZyzKOFbh7m3jFpDxzqUry/9ielBGpw==",
       "type": "package",
       "path": "microsoft.extensions.logging/1.0.2",
       "files": [
@@ -3488,7 +3494,7 @@
       ]
     },
     "Microsoft.Extensions.Logging.Abstractions/1.0.2": {
-      "sha512": "ccpUhxTBf708m14GzvlKSbHoXZh+z14MYZzX33knXeob15dr50rx0FryMjN2Bfu6WNoHnYiuh/VG3HbarGIc/A==",
+      "sha512": "vfiF6U4Mlf+NNEsarSC7I36oVuhJYWgazaHUYKmlt5IBQjvIbJPiMenLjICjCFTjJ/z6hMLhijylRem2lWUz5Q==",
       "type": "package",
       "path": "microsoft.extensions.logging.abstractions/1.0.2",
       "files": [
@@ -3499,7 +3505,7 @@
       ]
     },
     "Microsoft.Extensions.ObjectPool/1.0.1": {
-      "sha512": "wqBDu9Dk9xhCAJX3xdqt+4hQ7JRsrQWBFU599db4pCido4ltbQNDYYlg9KxhtH5uws+YlvMgpboOWO2yF13TAA==",
+      "sha512": "pJMOnxuqmG37OjccfvtqVoo3bQGoN+0EJUzzp7+2uxSdioER82caAk6Yi/z5aysapn5XENNIIa7SaYnYKSS69A==",
       "type": "package",
       "path": "microsoft.extensions.objectpool/1.0.1",
       "files": [
@@ -3512,7 +3518,7 @@
       ]
     },
     "Microsoft.Extensions.Options/1.0.2": {
-      "sha512": "f31O8I+o5JwjZA71YjZ+erblquNx087gs81/AnO1gGTE89lTvW3p3IDL74DlGfvvXEdCmRyIt9jDt3xHMBD85g==",
+      "sha512": "Q3c5+fWcVDKvtrFgC3iLMd6SVLMMAWE7O7owYFdybn0JTJhp+8d/L4K16FyPUJL8k7asRvYn9lI1v1ZNCKsNhQ==",
       "type": "package",
       "path": "microsoft.extensions.options/1.0.2",
       "files": [
@@ -3536,7 +3542,7 @@
       ]
     },
     "Microsoft.Extensions.Primitives/1.0.1": {
-      "sha512": "CeAmQHvK+guswa7AlQeS/GuGqCzXGfLNX40WFukFKk1t4VDAfIvaC4O6SLY34hhaRkazxmIEUpuWSsicOfg+Mg==",
+      "sha512": "PBdd8B1B1EEGsU5X5MDVvwzruYf9ioiHYmZOio2z30UbILG0f60I/hl4LslCHakMcuqe/T5jXiV/NzN1Jc6uMg==",
       "type": "package",
       "path": "microsoft.extensions.primitives/1.0.1",
       "files": [
@@ -5230,7 +5236,7 @@
       ]
     },
     "System.Linq.Expressions/4.1.1": {
-      "sha512": "Ud/3q+1b8rqXJPoLSyR2OGCklg2u/TWbcG0cl6oVSnrPiPUxecmG1Cls9SOB5E6jufQIoclv1c3rpnyu4slQ/g==",
+      "sha512": "bXwi8FrK/XIGPvtk1ZnawffhqLPyacj7dZnbFaV52YGaQigNqGEzNAByAIvL9FlEe3TCzoInorHF91IK//Q3Xg==",
       "type": "package",
       "path": "system.linq.expressions/4.1.1",
       "files": [
@@ -7697,27 +7703,43 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Volkan\\.nuget\\packages\\": {}
+    "/Users/tansut/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.4",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Api\\JDash.NetCore.Api.csproj",
+      "projectUniqueName": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Api/JDash.NetCore.Api.csproj",
       "projectName": "JDash.NetCore.Api",
-      "projectPath": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Api\\JDash.NetCore.Api.csproj",
-      "outputPath": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Api\\obj\\",
+      "projectPath": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Api/JDash.NetCore.Api.csproj",
+      "packagesPath": "/Users/tansut/.nuget/packages/",
+      "outputPath": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Api/obj/",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "/Users/tansut/.nuget/NuGet/NuGet.Config"
+      ],
       "originalTargetFrameworks": [
         "netstandard1.6"
       ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netstandard1.6": {
           "projectReferences": {
-            "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Models\\JDash.NetCore.Models.csproj": {
-              "projectPath": "D:\\Projects\\jdashv2\\jdash-netcore\\JDash.NetCore.Models\\JDash.NetCore.Models.csproj"
+            "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Models/JDash.NetCore.Models.csproj": {
+              "projectPath": "/Users/tansut/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Models/JDash.NetCore.Models.csproj"
             }
           }
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
