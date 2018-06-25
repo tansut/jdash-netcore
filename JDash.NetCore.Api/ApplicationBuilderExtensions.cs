@@ -38,8 +38,6 @@ namespace JDash.NetCore.Api
         {
             IApplicationBuilder newAppConfiguration = null;
 
-            File.WriteAllText("/Users/tansu/temp/1.txt", DateTime.Now.Ticks.ToString());
-
             app.Map(new PathString(apiPath), (configuration) =>
             {
                     
