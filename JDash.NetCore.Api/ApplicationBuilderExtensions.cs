@@ -1,4 +1,4 @@
-﻿#define REGISTERED_VERSION
+﻿//#define REGISTERED_VERSION
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,30 +29,29 @@ namespace JDash.NetCore.Api
         /// <summary>
         /// Configure the application to use jdash.
         /// </summary>
-        /// <typeparam name="ConfiguratorType">Configurator Type, this must be implemented by developers to fit their application.</typeparam>
+        /// <typeparam  name="ConfiguratorType">Configurator Type, this must be implemented by developers to fit their application.</typeparam>
         /// <param name="app">The application.</param>
         /// <param name="apiPath">The API path of http request to listen.</param>
         /// <returns></returns>
         public static IApplicationBuilder UseJDash<ConfiguratorType>(this IApplicationBuilder app, string apiPath)
            where ConfiguratorType : BaseJDashConfigurator
         {
-
             IApplicationBuilder newAppConfiguration = null;
+
+            File.WriteAllText("/Users/tansu/temp/1.txt", DateTime.Now.Ticks.ToString());
 
             app.Map(new PathString(apiPath), (configuration) =>
             {
-
+                    
 #if !(REGISTERED_VERSION)
                 configuration.MapWhen(IsNotLocalUrl, WriteUnlicensedResponse);
 #endif
-
-                configuration.UseMvc();
+                configuration.UseMvcWithDefaultRoute();
 
                 Configuration.ConfiguratorType = typeof(ConfiguratorType);
                 newAppConfiguration = configuration;
 
             });
-
             return newAppConfiguration;
         }
 

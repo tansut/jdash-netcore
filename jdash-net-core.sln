@@ -4,10 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7D3FCDD5-B1AA-4503-B00D-78A533F5224F}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Util", "Util", "{F392CF1A-B7CE-4ACE-B397-7457F19B5F48}"
 	ProjectSection(SolutionItems) = preProject
-		build.nuget.bat = build.nuget.bat
+		Util\build.nuget.sh = Util\build.nuget.sh
+		Util\build.nuget.test.sh = Util\build.nuget.test.sh
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JDash.NetCore.Provider.MsSQL", "JDash.NetCore.Provider.MsSQL\JDash.NetCore.Provider.MsSQL.csproj", "{5703A839-6690-4085-939E-6FFB0846F0A3}"
@@ -57,6 +61,6 @@ Global
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
-		version = 2.0
+		version = 2.1
 	EndGlobalSection
 EndGlobal

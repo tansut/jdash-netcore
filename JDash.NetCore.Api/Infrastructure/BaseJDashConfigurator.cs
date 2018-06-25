@@ -5,10 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Primitives;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace JDash.NetCore.Api
-{
-    public abstract class BaseJDashConfigurator
+{ 
+
+public abstract class BaseJDashConfigurator
     {
         protected readonly HttpContext HttpContext;
         private bool ensureTablesCreated;

@@ -2,15 +2,11 @@
 <package >
   <metadata>
     <id>JDash.NetCore.Api</id>
-    <version>1.0.0</version>
-    <authors>Kalitte</authors>
-    <owners>Tansu Türkoğlu</owners> 
-    <description>JDash Trial Api DLL</description>
-    <releaseNotes>First Release</releaseNotes>
-    <copyright>Copyright 2017</copyright>
-    <tags>JDash .NetCore .NetStandart C# Api</tags>
-    <dependencies>
-      <dependency id="JDash.NetCore.Models" version="1.0" />
-    </dependencies>
+    <version>2.1.0</version>
+    <authors>Aibrite</authors>
+    <description>JDash NetCore Api Library</description>
+    <releaseNotes>NetCore 2.1 upgrade</releaseNotes>
+    <copyright>Copyright 2017-2018 Aibrite Inc.</copyright>
+    <tags>JDash</tags>
   </metadata>
 </package>
