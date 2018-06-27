@@ -1215,7 +1215,7 @@
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "2.1.0",
+    "version": "2.1.1",
     "restore": {
       "projectUniqueName": "/Users/tansu/project/aibrite/jdash/jdash-netcore/JDash.NetCore.Provider.MsSQL/JDash.NetCore.Provider.MsSQL.csproj",
       "projectName": "JDash.NetCore.Provider.MsSQL",

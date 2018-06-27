@@ -258,20 +258,16 @@ namespace JDash.NetCore.Provider.MsSQL
                 dashletCommand.CommandType = System.Data.CommandType.Text;
                 dashletCommand.Parameters.Add("@dashboardId", System.Data.SqlDbType.Int).Value = id;
 
-
-                SqlTransaction transaction = null;
                 try
                 {
                     connection.Open();
-                    transaction = connection.BeginTransaction();
-                    dashletCommand.ExecuteNonQuery();
-                    command.ExecuteNonQuery();
-                    transaction.Commit();
-                }
-                catch {
-                    if (transaction != null)
-                        transaction.Rollback();
-                    throw;
+                    using (SqlTransaction transaction = connection.BeginTransaction(System.Data.IsolationLevel.ReadCommitted)) {
+                        dashletCommand.Transaction = transaction;                        
+                        dashletCommand.ExecuteNonQuery();
+                        command.Transaction = transaction;
+                        command.ExecuteNonQuery();
+                        transaction.Commit();                        
+                    }
                 }
                 finally
                 {
