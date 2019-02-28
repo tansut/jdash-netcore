@@ -1,4 +1,4 @@
-﻿//#define REGISTERED_VERSION
+﻿#define REGISTERED_VERSION
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
